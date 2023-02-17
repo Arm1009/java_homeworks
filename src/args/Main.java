@@ -9,9 +9,7 @@ public class Main {
         ArraysUtil ex = new ArraysUtil();
         ArraysUtil.randArr();
         ex.maxMinArr();
-
         ex.reverseThis();
-
         ex.cloneArrays();
         ex.arraysSum3();
         ex.findNum();
