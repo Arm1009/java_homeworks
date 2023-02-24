@@ -1,13 +1,7 @@
 package strings;
 
-
-
 import java.lang.StringBuilder;
-
 import java.util.Scanner;
-
-
-
 
 public class StringUtil {
     Scanner sc = new Scanner(System.in);
@@ -15,15 +9,16 @@ public class StringUtil {
     //1․  Գրել method,  որը  կատարում է String concatenation  տվյալ պարամետրով․
 //    Նույնը  խնդիրը  StringBuilder-ով.
 //1.1
-    public void conStr() {
-        String first = "hello";
-        String second = "world";
+    public void conStr(String first , String second) {
+//        String first = "hello";
+//        String second = "world";
         String third = first.concat(second);
+
         System.out.println(third);
 
         StringBuilder sb = new StringBuilder();
-        StringBuilder stringBuilder = new StringBuilder("hello");
-        System.out.println(stringBuilder.append("world"));
+        StringBuilder stringBuilder = new StringBuilder(second);
+        System.out.println(stringBuilder.append(first));
 
     }
 
@@ -55,8 +50,16 @@ public class StringUtil {
     public void literals() {
         System.out.println("input String:");
         String a = sc.nextLine();
+        for (int i = 0; i < a.length(); i++) {
+            if (a.charAt(i)==' ') {
+                System.out.print("\n");
+            }else
+                System.out.print(a.charAt(i));
 
-        System.out.println(a.replace(' ', '\n'));
+
+        }
+      //  System.out.println(a.replace(' ', '\n'));
+
 
     }
 
@@ -67,11 +70,11 @@ public class StringUtil {
         String scr = "";
 
 
-        for (int i = str.length() - 1; i >= 0; i--) {
+        for (int i = str.length()-1; i >= 0; i--) {
 
             scr += String.valueOf(str.charAt(i));
-            System.out.println(scr);
-        }
+
+        }System.out.println(scr);
 
 
     }
@@ -83,17 +86,17 @@ public class StringUtil {
         String token = sc.nextLine();
         int s = 0;
         while (line.contains(token)) {
-            line = line.replaceFirst(token, " ");
+            line = line.replace(token, " ");
             s++;
-            System.out.println(s);
-            System.out.println(line);
 
 
 
-        }
+
+        }System.out.println(s);
+        System.out.println(line);
     }
 
-    public void bigStr(){
+    public String bigStr(){
         System.out.println("Input String:");
         String string  =  sc.nextLine();
         String upperCase = "";
@@ -105,6 +108,7 @@ public class StringUtil {
                 upperCase += string.charAt(i);
             
         }
+        return upperCase;
     }
   //  6․ Գրել method, որը console-ից կարդում է 20 երկարությամբ սիմվոլների տող , տպում այն եթե տողի
     //  երկարությունը պակաս է 20 ից ապա պետք է տողը լռացնենք պակաս սիմվոլների փոխարեն գրելով «*» սիմվոլը.
@@ -112,13 +116,52 @@ public class StringUtil {
         System.out.println("Input String");
         String sim = sc.nextLine();
         String len = String.valueOf(sim.length());
-        
+
         if (sim.length()<=20){
-            System.out.println(sim.replace(' ', '*'));
+          //  System.out.println(sim.replace(sim(), '*'));
             System.out.println(sim.length());
         }
 
     }
+//    public int aaa(int a ,int b){
+//        return a+b;
+//    }
+//        public float aaa(float c, float d) {
+//         return c+d;
+//        }
 
+    public String longestPalindrome (String a) {
+        int     si = 0, l1 = 1, l2 = 1;
+        boolean t;
+        for (int i = 0; i < a.length() - 1; i++) {
+            for (int j = i + 1; j < a.length(); j++) {
+                t = isPalindrome(a.substring(i, j + 1));
+                if (t) {
+                    l2 = j - i + 1;
+                    if (l2 > l1) {
+                        si = i;
+                        l1 = l2;
+                    }
+                }
+            }
+        }
+        StringBuilder b = new StringBuilder();
+        b.append(a.substring(si, si + l1));
+        return String.valueOf(b);
+    }
+    public boolean isPalindrome (String a) {
+        if (a.length() < 2) {
+            return true;
+        } else if (a.charAt(0) != a.charAt(a.length() - 1)) {
+            return false;
+        } else {
+            return isPalindrome(a.substring(1, a.length() - 1));
+        }
+    }
 
 }
+
+
+
+
+
