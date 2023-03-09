@@ -1,6 +1,9 @@
-package absract1;
+package abstracts.absract1;
 
 public class ChildOne extends Parent {
+    /**
+     *  abstract method message() is realized in class ChildOne
+     */
 
     @Override
     public void message() {

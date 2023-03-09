@@ -1,4 +1,4 @@
-package inheritance1;
+package inheritance.inheritance1;
 
 public class Parent {
     public void showMessage(){

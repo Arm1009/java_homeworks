@@ -1,7 +1,9 @@
-package abstract9;
+package abstracts.absract9;
 
-public class Dog extends Animals{
-
+public class Dog extends Animals {
+    /**
+     * realized methods cat() & dog()
+     */
     @Override
     public void cat(){}
 

@@ -1,4 +1,4 @@
-package abstract9;
+package abstracts.absract9;
 
 public class Main {
     public static void main(String[] args) {
